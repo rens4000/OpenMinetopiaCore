@@ -13,20 +13,23 @@ public class SettingsManager {
 	
 	static ChatUtils chatUtils = ChatUtils.getChatUtils();
 	
-    static FileConfiguration config;
-    static File configfile;
+    static FileConfiguration config, players;
+    static File configfile, playersfile;
 
     public static void setup() {
-    	configfile = new File("plugins/MinetopiaCore/", "config.yml");
+    	configfile = new File("plugins/OpenMinetopiaCore/", "config.yml");
+    	playersfile = new File("plugins/OpenMinetopiaCore/", "players.yml");
 
         if (!configfile.exists()) {
             try {
             	configfile.createNewFile();
+            	playersfile.createNewFile();
             } catch (IOException e) {
             }
         }
 
         config = YamlConfiguration.loadConfiguration(configfile);
+        players = YamlConfiguration.loadConfiguration(playersfile);
     }
 
     public static FileConfiguration getConfig() {
