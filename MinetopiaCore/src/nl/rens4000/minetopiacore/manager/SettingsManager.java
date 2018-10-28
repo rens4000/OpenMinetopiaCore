@@ -35,6 +35,10 @@ public class SettingsManager {
     public static FileConfiguration getConfig() {
         return config;
     }
+    
+    public static FileConfiguration getPlayers() {
+        return players;
+    }
 
     public static void saveConfig() {
         try {
@@ -43,9 +47,18 @@ public class SettingsManager {
             Bukkit.getServer().getLogger().severe(chatUtils.colorcode("&4Could not load config.yml"));
         }
     }
+    
+    public static void savePlayers() {
+        try {
+        	players.save(playersfile);
+        } catch (IOException e) {
+            Bukkit.getServer().getLogger().severe(chatUtils.colorcode("&4Could not load players.yml"));
+        }
+    }
 
     public static void reload() {
     	config = YamlConfiguration.loadConfiguration(configfile);
+    	players = YamlConfiguration.loadConfiguration(playersfile);
     }
 
 	

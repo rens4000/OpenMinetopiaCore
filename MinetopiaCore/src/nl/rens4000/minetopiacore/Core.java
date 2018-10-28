@@ -60,6 +60,12 @@ public class Core extends JavaPlugin {
 		// Adds config properties that will be added by default.
 		SettingsManager.getConfig().addDefault("chat.prefix", "&7[&3Minetopia&cCore&7]");
 		
+		SettingsManager.getConfig().addDefault("standard.job", "&7Citizen");
+		SettingsManager.getConfig().addDefault("standard.rank", "&7Player");
+		SettingsManager.getConfig().addDefault("standard.fatigue", "100");
+		
+		SettingsManager.getConfig().addDefault("scoreboard.servername", "MyServer");
+		
 		// Says that the defaults need to be copied to the file.
 		SettingsManager.getConfig().options().copyDefaults(true);
 		
